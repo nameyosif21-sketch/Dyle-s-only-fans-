@@ -165,3 +165,36 @@ end
 Players.PlayerAdded:Connect(setupPlayer)-- The function that takes place when the button is pressed
    end,
 })
+
+local Button = Tab:CreateButton({
+   Name = "kill aura",
+   Callback = function()
+    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-I-Universal-Kill-Aura-I-6621"))()
+   end,
+})
+
+local Button = Tab:CreateButton({
+   Name = "kill yourself. in the game.",
+   Callback = function()
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+
+character:BreakJoints()
+   end,
+})
+
+local Slider = Tab:CreateSlider({
+   Name = "health. may not work in some/most games",
+   Range = {0, 300},
+   Increment = 1,
+   Suffix = "HP",
+   CurrentValue = 100,
+   Flag = "Slider999", -- A flag is the identifier for the configuration file; make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+    local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+humanoid.Health = Value
+   end,
+})
